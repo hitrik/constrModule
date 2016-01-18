@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "name": "Boa-constrictor",
+  "description": "constructor for social services",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [{
+    "matches": ["*://vk.com/*"],
+    "js": ["bundle.js"]
+  }],
+  "web_accessible_resources": ["./content_scripts/css/constr_style.css"],
+  "permissions": [
+    "tabs"
+  ]
+}
