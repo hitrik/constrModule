@@ -18,5 +18,6 @@ let mockDataJS = {
     file: jsFile
 };
 
-inject.insertResource(mockDataCSS);
-inject.insertResource(mockDataJS);
+inject.insertResource(mockDataCSS).insertResource(mockDataJS, () => {
+    console.log("js loaded.");
+});

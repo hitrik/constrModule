@@ -68,8 +68,9 @@
 	    file: jsFile
 	};
 
-	inject.insertResource(mockDataCSS);
-	inject.insertResource(mockDataJS);
+	inject.insertResource(mockDataCSS).insertResource(mockDataJS, function () {
+	    console.log("js loaded.");
+	});
 
 /***/ },
 /* 1 */
@@ -114,7 +115,7 @@
 	        }
 	    }, {
 	        key: "insertResource",
-	        value: function insertResource(obj) {
+	        value: function insertResource(obj, callback) {
 	            if (!obj) {
 	                throw new Error("require object argument for insertResource");
 	            }
@@ -135,10 +136,9 @@
 	            }
 	            if (head) {
 	                head.appendChild(resource);
-	                resource.addEventListener("load", function () {
-	                    console.log("resource is loaded");
-	                }, false);
+	                resource.addEventListener("load", callback && callback() || function () {}, false);
 	            }
+	            return this;
 	        }
 	    }]);
 

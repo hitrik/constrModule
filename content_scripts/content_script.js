@@ -19,7 +19,7 @@
             this.store.length = 0;
             return this.store.push(obj);
         }
-        insertResource(obj) {
+        insertResource(obj, callback) {
             if(!obj) {
                 throw new Error("require object argument for insertResource");
             }
@@ -40,9 +40,8 @@
             }
             if(head) {
                 head.appendChild(resource);
-                resource.addEventListener("load", () => {
-                    console.log("resource is loaded");
-                }, false);
+                resource.addEventListener("load", (callback && callback()) || (() => {}), false);
             }
+            return this;
         }
     }
