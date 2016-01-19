@@ -1,14 +1,22 @@
 import { Inject } from "./content_script.js";
 import { Button } from "./view/button.js";
+import { Toolbar } from "./view/toolbar.js";
 
-const btn = new Button("Constr");
+const btn = new Button("Constructor");
+const toolbar = new Toolbar();
 const inject = new Inject();
 
-let cssFile = chrome.extension.getURL("./css/constr_style.css");
+let cssFile = inject.getFromExtension("./css/constr_style.css");
+let jsFile = inject.getFromExtension("./content_scripts/js/test.js");
 
-let mockData = {
-    type: "js",
+let mockDataCSS = {
+    type: "css",
     file: cssFile
 };
+let mockDataJS = {
+    type: "js",
+    file: jsFile
+};
 
-inject.insertResource(mockData);
+inject.insertResource(mockDataCSS);
+inject.insertResource(mockDataJS);

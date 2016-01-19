@@ -9,13 +9,19 @@
             return this.store;
         }
 
+        getFromExtension(path) {
+            if(path) {
+                return chrome.extension.getURL(path);
+            }
+        }
+
         setStore(obj) {
             this.store.length = 0;
             return this.store.push(obj);
         }
         insertResource(obj) {
             if(!obj) {
-                throw new Error("require object argument, insertResource");
+                throw new Error("require object argument for insertResource");
             }
             let head = document.querySelector("head");
             let resource = null;

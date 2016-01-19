@@ -10,7 +10,7 @@
     "matches": ["*://vk.com/*"],
     "js": ["bundle.js"]
   }],
-  "web_accessible_resources": ["./content_scripts/css/constr_style.css"],
+  "web_accessible_resources": ["css/*", "content_scripts/js/*"],
   "permissions": [
     "tabs"
   ]

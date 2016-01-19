@@ -18,5 +18,8 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-runtime": "^6.3.19",
     "webpack": "^1.12.11"
+  },
+  "dependencies": {
+    "microevent": "^1.0.0"
   }
 }
