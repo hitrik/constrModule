@@ -1,10 +1,8 @@
 import { Inject } from "./content_script.js";
-import { Button } from "./view/button.js";
-import { Toolbar } from "./view/toolbar.js";
+import { Controller } from "./event_controller.js";
 
-const btn = new Button("Constructor");
-const toolbar = new Toolbar();
 const inject = new Inject();
+const ctrl = new Controller();
 
 let cssFile = inject.getFromExtension("./css/constr_style.css");
 let jsFile = inject.getFromExtension("./content_scripts/js/test.js");

@@ -1,7 +1,7 @@
     export class Inject {
         constructor() {
-            this.file = null;
-            this.type = null;
+            this.file;
+            this.type;
             this.store = [];
         }
 

@@ -1,4 +1,4 @@
-export class Utils {
+class Utils {
     constructor() {
 
     }
@@ -13,6 +13,10 @@ export class Utils {
     addEvent(type, elem, fn) {
         elem.addEventListener(type, fn, false);
         return this;
+    }
+
+    getElem(selector) {
+        return document.querySelector(selector);
     }
 
     removeEvent(type, elem, fn) {
@@ -33,3 +37,6 @@ export class Utils {
         return elem;
     }
 }
+
+let utils = new Utils();
+export { utils };
